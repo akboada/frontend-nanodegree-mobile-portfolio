@@ -1,0 +1,18 @@
+
+MDN:
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+
+
+Udacity Office Hours:
+
+https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS
+
+https://github.com/udacity/fend-office-hours/blob/master/Front%20End%20Tools/Gulp/README.md
+
+
+Udacity Forums:
+
+http://discussions.udacity.com/t/stuck-on-pizza-need-help-with-rps-and-resize-pizza/14719/4
+
+http://discussions.udacity.com/t/stumped-on-changepizzasizes/14251
