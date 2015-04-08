@@ -1,23 +1,4 @@
-/*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
-jank-free at 60 frames per second.
-
-There are two major issues in this code that lead to sub-60fps performance. Can
-you spot and fix both?
-
-
-Built into the code, you'll find a few instances of the User Timing API
-(window.performance), which will be console.log()ing frame rate data into the
-browser console. To learn more about User Timing API, check out:
-http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
-Creator:
-Cameron Pittman, Udacity Course Developer
-cameron *at* udacity *dot* com
-*/
-
-// As you may have realized, this website randomly generates pizzas.
-// Here are arrays of all possible pizza ingredients.
+// Arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
   "Pepperoni",
@@ -403,6 +384,7 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
+  //AB: created variable for access pizzaSize id outside of switch statement
   var pzSize = document.getElementById("pizzaSize");
 
   function changeSliderLabel(size) {
@@ -425,11 +407,11 @@ var resizePizzas = function(size) {
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
+
     var oldwidth = elem.offsetWidth;
-    var windowwidth = 1170;
+    var windowwidth = document.getElementById("randomPizzas").offsetWidth;
     var oldsize = oldwidth / windowwidth;
 
-    // TODO: change to 3 sizes? no more xl?
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       switch(size) {
@@ -447,16 +429,21 @@ var resizePizzas = function(size) {
     var newsize = sizeSwitcher(size);
     var dx = (newsize - oldsize) * windowwidth;
 
-
+    //AB: Changed return value so that don't have to take a redudant measurement
+    //in the following for loop that this function feeds into.
     return dx + oldwidth;
 
   }
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    //created array for accessing randomPizzaContainer class
     var randoPizza = document.getElementsByClassName("randomPizzaContainer");
+    //AB: Access determineDX variable outside the loop, because each element of 
+    //the array will all be the same size
     var dx = determineDx(randoPizza[0], size);
-    for (var i = 0; i < randoPizza.length; i++) {  
+    for (var i = 0; i < randoPizza.length; i++) { 
+    //AB: Removed redudant new variable, and alter element style directly 
       randoPizza[i].style.width = dx + 'px';
     
     }
@@ -475,6 +462,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 
+//AB: Created pizzasDiv element outside of loop, so DOM only accessed once
 var pizzasDiv = document.getElementById("randomPizzas");
 
 for (var i = 2; i < 100; i++) {
@@ -532,10 +520,8 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-//Reduced number of pizzas generated
 
-pizzaMove = document.getElementById("movingPizzas1");
-
+//AB: Reduced number of pizzas generated in the for loop
 
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -548,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    pizzaMove.appendChild(elem);
+    document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
