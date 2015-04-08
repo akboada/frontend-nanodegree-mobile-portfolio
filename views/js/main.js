@@ -384,7 +384,7 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
-  //AB: created variable for access pizzaSize id outside of switch statement
+  //AB: created variable for accessing pizzaSize id outside of switch statement
   var pzSize = document.getElementById("pizzaSize");
 
   function changeSliderLabel(size) {
@@ -462,7 +462,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 
-//AB: Created pizzasDiv element outside of loop, so DOM only accessed once
+//AB: Created pizzasDiv variable outside of loop, so DOM only accessed once
 var pizzasDiv = document.getElementById("randomPizzas");
 
 for (var i = 2; i < 100; i++) {
@@ -503,7 +503,9 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((top / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+
   }
+
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
