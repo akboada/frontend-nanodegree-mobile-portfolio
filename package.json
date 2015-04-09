@@ -1,0 +1,31 @@
+{
+  "name": "mobile-portfolio",
+  "version": "1.0.0",
+  "description": "###Instructions",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-minify-html": "^1.0.2",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-uglify": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-minify-html": "^1.0.2",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-uglify": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akboada/mobile-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akboada/mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/akboada/mobile-portfolio"
+}
