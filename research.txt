@@ -7,6 +7,8 @@ Gulp:
 
 http://www.sitepoint.com/introduction-gulp-js/
 
+http://www.justinmccandless.com/blog/A+Tutorial+for+Getting+Started+with+Gulp
+
 
 Udacity Office Hours:
 
