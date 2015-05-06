@@ -3,12 +3,14 @@ var gulp = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     minifyCSS = require('gulp-minify-css'),
     minifyInline = require('gulp-minify-inline'),
+    imagemin = require('gulp-imagemin'),
     concatify = require('gulp-concat');
 
 var paths = {
 	scripts: ['./js/**/*.js','./views/js/**/*.js'],
 	content: ['./*.html','./views/**/*.html'],
-    styles: ['./css/**/*.css','./views/css/**/*.css']
+    styles: ['./css/**/*.css','./views/css/**/*.css'],
+    images: ['img/**/*', './views/images/**/*' ]
 }
 
 gulp.task('scripts', function(){
@@ -32,4 +34,14 @@ gulp.task('styles', function() {
         .pipe(minifyCSS())
         .pipe(gulp.dest('./build'));
 })
-gulp.task('default', ['scripts', 'content', 'styles']);
+
+gulp.task('images', function() {
+    return gulp.src(paths.images, {base:'./'})
+                .pipe(imagemin({
+                    progressive: true,
+                    optimizationLevel: 3
+                }))
+                .pipe(gulp.dest('./build'))
+})
+
+gulp.task('default', ['scripts', 'content', 'styles', 'images']);
