@@ -501,7 +501,7 @@ function updatePositions() {
   }
 
   for (var i = 0; i < items.length; i++) {
-    var move = items[i].basicLeft + 100 * phase [i % 5] ;
+    var move = items[i].basicLeft + 100 * phase [i % 5];
     items[i].style.transform = "translate("+ move +"px)";
   }
 
