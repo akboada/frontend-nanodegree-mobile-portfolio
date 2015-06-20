@@ -2,6 +2,8 @@
 
 ###Instructions
 
+To access the page click [here](http://akboada.github.io/mobile-portfolio/views/pizza.html)
+
 Scroll through the page to view a mesmermize assortment of randomly generated pizzas.
 
 Adjust the slider to change the size of pizza to your liking.
@@ -11,14 +13,9 @@ Adjust the slider to change the size of pizza to your liking.
 
 * Changed all querySelectorAll() to their respective getElementById or getElementsByClassName
 
-* Added transform property to 
-
-* Created variable for accessing #pizzaSize element outside of changeSliderLabel switch statement
-
 * Created array for accessing randomPizzaContainer class inside of changePizzaSizes function
 
-* Changed return value of the sizeSwitcher to "dx + oldwidth" so that the changePizzaSizes 
-function doen't have to take a redudant measurement
+* Removed reduntant determineDx function
 
 * Accessed determineDX variable outside the changePizzaSizes function loop, because each element of the array will be the same size
 
@@ -27,3 +24,8 @@ function doen't have to take a redudant measurement
 * Created pizzasDiv variable outside of the pizza generator loop, so the DOM is only accessed once
 
 *  Reduced number of pizzas generated
+
+* Changed updatePosition() function so that items[i].style to utilize the 'transform' property instead of
+the 'left' property, to avoid triggering a relayout
+
+* Created a seperate for loop for calcuting phase values
